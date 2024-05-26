@@ -31,11 +31,12 @@
       "step": "installPlugin",
       "pluginZipFile": {
         "resource": "wordpress.org/plugins",
-        "slug": "woocommerce"
+        "slug": "wordpress-importer"
       },
       "options": {
         "activate": false
       }
+
     },
     {
       "step": "installPlugin",
