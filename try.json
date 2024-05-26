@@ -39,26 +39,7 @@
       "options": {
         "activate": true
       }
-    },
-    {
-      "step": "installPlugin",
-      "pluginZipFile": {
-        "resource": "wordpress.org/plugins",
-        "slug": "mollie-payments-for-woocommerce"
-      },
-      "options": {
-        "activate": true
-      }
-    },
-    {
-      "step": "installPlugin",
-      "pluginZipFile": {
-        "resource": "url",
-        "url": ""
-      },
-      "options": {
-        "activate": true
-      }
     }
+
   ]
 }
