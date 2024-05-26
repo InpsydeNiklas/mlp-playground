@@ -10,12 +10,6 @@
   ],
   "steps": [
     {
-      "step": "defineWpConfigConsts",
-      "consts": {
-        "WP_ALLOW_MULTISITE": true
-      }
-    },
-    {
       "step": "enableMultisite"
     },
     {
