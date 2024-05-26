@@ -1,8 +1,8 @@
 {
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
-  "landingPage": "/wp-admin/admin.php?page=wc-settings",
+  "landingPage": "/wp-admin/network/plugins.php",
   "preferredVersions": {
-    "php": "8.0",
+    "php": "8.2",
     "wp": "latest"
   },
   "phpExtensionBundles": [
@@ -32,6 +32,16 @@
       "pluginZipFile": {
         "resource": "wordpress.org/plugins",
         "slug": "woocommerce"
+      },
+      "options": {
+        "activate": false
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "multisite-enhancements"
       },
       "options": {
         "activate": false
