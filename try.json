@@ -44,7 +44,7 @@
         "slug": "multisite-enhancements"
       },
       "options": {
-        "activate": false
+        "activate": true
       }
     }
 
