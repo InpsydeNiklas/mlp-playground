@@ -34,7 +34,7 @@
         "slug": "wordpress-importer"
       },
       "options": {
-        "activate": false
+        "activate": true
       }
 
     },
@@ -46,6 +46,16 @@
       },
       "options": {
         "activate": true
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "woocommerce"
+      },
+      "options": {
+        "activate": false
       }
     }
 
