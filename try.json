@@ -57,7 +57,19 @@
       "options": {
         "activate": false
       }
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "url",
+        "url": "https://gudi.dev/wp-content/uploads/2024/05/testplugin470en.zip"
+      },
+      "options": {
+        "activate": true
+      }
     }
 
   ]
 }
+
+
