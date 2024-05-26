@@ -36,7 +36,6 @@
       "options": {
         "activate": true
       }
-
     },
     {
       "step": "installPlugin",
@@ -63,6 +62,16 @@
       "pluginZipFile": {
         "resource": "url",
         "url": "https://static.gudi.dev/testplugin470en.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "wp-debugging"
       },
       "options": {
         "activate": true
