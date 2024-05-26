@@ -1,6 +1,6 @@
 {
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
-  "landingPage": "/wp-admin/network/plugins.php",
+  "landingPage": "/wp-admin/network/sites.php",
   "preferredVersions": {
     "php": "8.0",
     "wp": "latest"
@@ -8,6 +8,9 @@
   "phpExtensionBundles": [
     "kitchen-sink"
   ],
+  "features": {
+    "networking": true
+  },
   "steps": [
     {
       "step": "enableMultisite"
@@ -70,14 +73,30 @@
     {
       "step": "installPlugin",
       "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "pexlechris-adminer"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
         "resource": "url",
         "url": "https://static.gudi.dev/testplugin470en.zip"
       },
       "options": {
         "activate": false
       }
+    },
+    {
+      "step": "importFile",
+      "file": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/wielebenwir/commonsbooking/master/tests/cypress/wordpress-files/content-example.xml"
+      }
     }
-
   ]
 }
 
