@@ -1,8 +1,8 @@
 {
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
-  "landingPage": "/wp-admin/network/sites.php",
+  "landingPage": "/product/playground-product/",
   "preferredVersions": {
-    "php": "8.0",
+    "php": "7.4",
     "wp": "latest"
   },
   "phpExtensionBundles": [
@@ -16,9 +16,23 @@
       "step": "enableMultisite"
     },
     {
+      "step": "defineWpConfigConsts",
+      "consts": {
+        "WP_DEBUG": true,
+        "WP_DEBUG_DISPLAY": true
+      }
+    },
+    {
       "step": "login",
       "username": "admin",
       "password": "password"
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "MultilingualPress Playground",
+        "blogdescription": "Experience multilingual perfection."
+      }
     },
     {
       "step": "installTheme",
@@ -57,16 +71,6 @@
         "slug": "woocommerce"
       },
       "options": {
-        "activate": false
-      }
-    },
-    {
-      "step": "installPlugin",
-      "pluginZipFile": {
-        "resource": "wordpress.org/plugins",
-        "slug": "wp-debugging"
-      },
-      "options": {
         "activate": true
       }
     },
@@ -74,7 +78,7 @@
       "step": "installPlugin",
       "pluginZipFile": {
         "resource": "wordpress.org/plugins",
-        "slug": "pexlechris-adminer"
+        "slug": "code-snippets"
       },
       "options": {
         "activate": true
@@ -91,11 +95,23 @@
       }
     },
     {
-      "step": "importFile",
+      "step": "importWxr",
       "file": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/wielebenwir/commonsbooking/master/tests/cypress/wordpress-files/content-example.xml"
+        "url": "https://raw.githubusercontent.com/InpsydeNiklas/mlp-playground/main/content.xml"
       }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php\ninclude 'wordpress/wp-load.php';\nif (class_exists('WC_Product_Simple')) {\n$product = new WC_Product_Simple();\n$product->set_name('Playground Product');\n$product->set_regular_price(10);\n$product->set_status('publish');\n$product->save();\n};\nupdate_option('woocommerce_bacs_settings', array('enabled' => 'yes', 'title' => 'Direct bank transfer'));\ndelete_transient('_wc_activation_redirect');\nadd_filter( 'woocommerce_enable_setup_wizard', '__return_false' );"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php\ninclude 'wordpress/wp-load.php';\nupdate_user_meta( 1, 'billing_first_name', 'John' );\nupdate_user_meta( 1, 'billing_last_name', 'Doe' );\nupdate_user_meta( 1, 'billing_company', 'Test Company' );\nupdate_user_meta( 1, 'billing_address_1', '123 Test St' );\nupdate_user_meta( 1, 'billing_address_2', '' );\nupdate_user_meta( 1, 'billing_city', 'Test City' );\nupdate_user_meta( 1, 'billing_postcode', '12345' );\nupdate_user_meta( 1, 'billing_country', 'US' );\nupdate_user_meta( 1, 'billing_state', 'NY' );\nupdate_user_meta( 1, 'billing_phone', '123-456-7890' );\nupdate_user_meta( 1, 'billing_email', 'johndoe@test.com' );"
+    },
+    {
+        "step": "wp-cli",
+        "command": "wp plugin activate woocommerce --network"
     }
   ]
 }
