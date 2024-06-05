@@ -88,7 +88,7 @@
       "step": "installPlugin",
       "pluginZipFile": {
         "resource": "url",
-        "url": "https://static.gudi.dev/testplugin470en.zip"
+        "url": "https://static.gudi.dev/testplugin_4.7.0-playground-edition.zip"
       },
       "options": {
         "activate": false
