@@ -92,7 +92,7 @@
         "url": "https://static.gudi.dev/testplugin_4.7.0-playground-edition.zip"
       },
       "options": {
-        "activate": true
+        "activate": false
       }
     },
     {
